@@ -5,10 +5,6 @@ public class Menu {
     private static Drink[] drinks = new Drink[5];
     private static Dessert[] desserts = new Dessert[5];
 
-    public Menu() {
-
-    }
-
     // Adds burger to menu
     public static void add(Burger burger) {
         for (int i = 0; i < burgers.length; i++) {
@@ -39,32 +35,59 @@ public class Menu {
         }
     }
 
+    // Get Burgers
+    public static Burger[] getBurgers() {
+        return burgers;
+    }
+
+    // Get Drinks
+    public static Drink[] getDrinks() {
+        return drinks;
+    }
+
+    // Get Desserts
+    public static Dessert[] getDesserts() {
+        return desserts;
+    }
+
     // Draws line
     public static void drawLine() {
         System.out.println("-----------------------------------------------");
     }
 
     // Displays Menu
-    public static void display() {
+    public static void display(String item) {
         System.out.println("Welcome to !McDonald's");
-        drawLine();
-        System.out.println("Burgers:");
-        drawLine();
-        for (int i = 0; i < burgers.length; i++) {
-            System.out.printf("%d)%-15s%15s%15s\n", i + 1, burgers[i].getName(), burgers[i].getCalories() + " Calories", "$" + burgers[i].getPrice());
+        if (item.equals("burger") || item.equals("all")) {
+            drawLine();
+            System.out.println("Burgers:");
+            drawLine();
+            for (int i = 0; i < burgers.length; i++) {
+                System.out.printf("%-4s%-25s%-15s%-15s\n", (i + 1) + ")", burgers[i].getName(),
+                        burgers[i].getCalories() + " Calories", "$" + burgers[i].getPrice());
+            }
+            drawLine();
         }
-        drawLine();
-        System.out.println("Drinks:");
-        drawLine();
-        for (int i = 0; i < drinks.length; i++) {
-            System.out.printf("%d)%-15s%15s%15s\n", i + 1, drinks[i].getName(), drinks[i].getCalories() + " Calories", "$" + drinks[i].getPrice());
+        if (item.equals("drink") || item.equals("all")) {
+            drawLine();
+            System.out.println("Drinks:");
+            drawLine();
+            for (int i = 0; i < drinks.length; i++) {
+                System.out.printf("%-4s%-25s%-15s%-15s\n", (i + 1) + ")", drinks[i].getName(),
+                        drinks[i].getCalories() + " Calories", "$" + drinks[i].getPrice());
+            }
+            drawLine();
         }
-        drawLine();
-        System.out.println("Desserts:");
-        drawLine();
-        for (int i = 0; i < desserts.length; i++) {
-            System.out.printf("%d)%-15s%15s%15s\n", i + 1, desserts[i].getName(), desserts[i].getCalories() + " Calories", "$" + desserts[i].getPrice());
+        if (item.equals("dessert") || item.equals("all")) {
+            drawLine();
+            System.out.println("Desserts:");
+            drawLine();
+            for (int i = 0; i < desserts.length; i++) {
+                System.out.printf("%-4s%-25s%-15s%-15s\n", (i + 1) + ")", desserts[i].getName(),
+                        desserts[i].getCalories() + " Calories", "$" + desserts[i].getPrice());
+            }
+            drawLine();
         }
-        drawLine();
+
     }
 }
