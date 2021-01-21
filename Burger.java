@@ -1,35 +1,77 @@
-import java.util.*;
 
+/**
+  * Represents a burger on the menu.
+  */
 public class Burger {
     private int calories;
     private double price;
     private String name;
-    private String[] ingredients;
 
-    public Burger(
-        String name,
-        int calories,
-        double price,
-        String[] ingredients
-    ) {
+
+    /** 
+      * Creates a burger.
+      * Automatically adds burger to menu.
+      * @param name The name of the burger.
+      * @param calories The calories of the burger.
+      * @param price The price of the burger to two decimal places.
+      */
+    public Burger(String name, int calories, double price) {
         this.name = name;
         this.calories = calories;
         this.price = price;
-        this.ingredients = ingredients;
         Menu.add(this);
     }
 
-    public int getCalories() { return this.calories; }
+    /**
+      * @return the burger's calories.
+      */
+    public int getCalories() {
+        return this.calories;
+    }
 
-    public double getPrice() { return this.price; }
+    /**
+      * @return the burger's price.
+      */
+    public double getPrice() {
+        return this.price;
+    }
 
-    public String getName() { return this.name; }
+    /**
+      * @return the burger's name.
+      */
+    public String getName() {
+        return this.name;
+    }
 
-    public String[] getIngredients() { return this.ingredients; }
+    /**
+      * To change the calories of the burger.
+      * @param calories The burger's calories.
+      */
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
 
+    /**
+      * To change the price of the burger.
+      * @param The burger's price
+      */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
+      * To change the name of the burger.
+      * @param name The burger's name.
+      */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+      * @return String to be returned when burger is printed.
+      */
     public String toString() {
-        return String.format(
-            "[\n Name: %s,\n Calories: %d,\n Price: $%.2f,\n Ingredients: %s,\n]\n", this.name, this.calories, this.price, Arrays.toString(this.ingredients)
-        );
+        return String.format("[\n Name: %s,\n Calories: %d,\n Price: $%.2f,\n]\n", this.name, this.calories,
+                this.price);
     }
 }
